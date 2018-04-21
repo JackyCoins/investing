@@ -1,10 +1,13 @@
 // Import libraries
 import React from "react";
 
+// Import components
+import Layout from "../components/Layout";
+
 const AboutPage = () => (
-  <div>
+  <Layout>
     <p>It's about page</p>
-  </div>
+  </Layout>
 );
 
 export default AboutPage;

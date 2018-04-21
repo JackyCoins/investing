@@ -1,8 +1,8 @@
 module.exports =
 
-        __NEXT_REGISTER_PAGE('/', function() {
+        __NEXT_REGISTER_PAGE('/post', function() {
           var comp = 
-      webpackJsonp([3],{
+      webpackJsonp([4],{
 
 /***/ "./components/Header/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1109,7 +1109,7 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
-/***/ "./pages/index.jsx":
+/***/ "./pages/post.jsx":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1118,13 +1118,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link__ = __webpack_require__("./node_modules/next/link.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_link__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Layout__ = __webpack_require__("./components/Layout/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Layout__ = __webpack_require__("./components/Layout/index.js");
 
-var _jsxFileName = '/Users/rusanov/WebstormProjects/investing/pages/index.jsx';
+var _jsxFileName = '/Users/rusanov/WebstormProjects/investing/pages/post.jsx';
+
 
 (function () {
   var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
@@ -1138,17 +1137,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 
-
-// Import components
-
-
-var Index = function Index(props) {
+var Post = function Post(props) {
   return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_4__components_Layout__["a" /* default */],
+    __WEBPACK_IMPORTED_MODULE_2__components_Layout__["a" /* default */],
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
+        lineNumber: 6
       }
     },
     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -1156,85 +1151,67 @@ var Index = function Index(props) {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 11
+          lineNumber: 7
         }
       },
-      'Batman TV Shows'
+      props.show.name
     ),
     __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-      'ul',
+      'p',
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 8
         }
       },
-      props.shows.map(function (_ref) {
-        var show = _ref.show;
-        return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-          'li',
-          { key: show.id, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 14
-            }
-          },
-          __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_next_link___default.a,
-            { as: '/p/' + show.id, href: '/post?id=' + show.id, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 15
-              }
-            },
-            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-              'a',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 16
-                }
-              },
-              show.name
-            )
-          )
-        );
-      })
-    )
+      props.show.summary.replace(/<[/]?p>/g, '')
+    ),
+    __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { src: props.show.image.medium, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      }
+    })
   );
 };
 
-Index.getInitialProps = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-  var res, data;
-  return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()("https://api.tvmaze.com/search/shows?q=batman");
+Post.getInitialProps = function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(context) {
+    var id, res, show;
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            id = context.query.id;
+            _context.next = 3;
+            return __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()('https://api.tvmaze.com/shows/' + id);
 
-        case 2:
-          res = _context.sent;
-          _context.next = 5;
-          return res.json();
+          case 3:
+            res = _context.sent;
+            _context.next = 6;
+            return res.json();
 
-        case 5:
-          data = _context.sent;
+          case 6:
+            show = _context.sent;
 
 
-          console.log('Show data fetched. Count: ' + data.length);
+            console.log('Fetched show: ' + show.name);
 
-          return _context.abrupt('return', {
-            shows: data
-          });
+            return _context.abrupt('return', { show: show });
 
-        case 8:
-        case 'end':
-          return _context.stop();
+          case 9:
+          case 'end':
+            return _context.stop();
+        }
       }
-    }
-  }, _callee, this);
-}));
+    }, _callee, this);
+  }));
 
-var _default = Index;
+  return function (_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var _default = Post;
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
 
@@ -1247,8 +1224,8 @@ var _default = Index;
     return;
   }
 
-  reactHotLoader.register(Index, 'Index', '/Users/rusanov/WebstormProjects/investing/pages/index.jsx');
-  reactHotLoader.register(_default, 'default', '/Users/rusanov/WebstormProjects/investing/pages/index.jsx');
+  reactHotLoader.register(Post, 'Post', '/Users/rusanov/WebstormProjects/investing/pages/post.jsx');
+  reactHotLoader.register(_default, 'default', '/Users/rusanov/WebstormProjects/investing/pages/post.jsx');
   leaveModule(module);
 })();
 
@@ -1269,22 +1246,22 @@ var _default = Index;
           next.router.update(r, Component)
         }
       }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/index.jsx")
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/post.jsx")
   
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/index.jsx");
+module.exports = __webpack_require__("./pages/post.jsx");
 
 
 /***/ })
 
-},[2])
+},[3])
           return { page: comp.default }
         })
       ;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=post.js.map
