@@ -1,14 +1,13 @@
 // Import libraries
 import React from "react";
-import { DatePicker } from 'antd';
 
 // Import components
-import Layout from "../components/Layout";
+import MainLayout from "../src/components/Layout/MainLayout";
 
-const IndexPage = props => (
-  <Layout>
-    <DatePicker />
-  </Layout>
+const IndexPage = () => (
+  <MainLayout>
+    Home
+  </MainLayout>
 )
 
 export default IndexPage;
