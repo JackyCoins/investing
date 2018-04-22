@@ -1,0 +1,11 @@
+{
+  "presets": ["react", "next/babel"],
+  "plugins": [
+    [
+      "inline-import",
+      {
+        "extensions": [".css"]
+      }
+    ]
+  ]
+}
