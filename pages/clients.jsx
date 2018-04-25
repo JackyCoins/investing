@@ -3,10 +3,11 @@ import React from "react";
 
 // Import components
 import MainLayout from "../src/components/Layout/MainLayout";
+import ContentHeader from "../src/components/Layout/ContentHeader";
 
 const ClientsPage = () => (
   <MainLayout>
-    ClientsPage
+    <ContentHeader title="Клиенты"/>
   </MainLayout>
 )
 

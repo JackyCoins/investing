@@ -1,2 +1,2 @@
 // Style's constants
-export const activeInteractiveColor = "#2592FC";
+export const brightBlueColor = "#2592FC";

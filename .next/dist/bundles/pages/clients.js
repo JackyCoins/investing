@@ -80,11 +80,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_components_Layout_MainLayout__ = __webpack_require__("./src/components/Layout/MainLayout/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_components_Layout_ContentHeader__ = __webpack_require__("./src/components/Layout/ContentHeader/index.js");
 var _jsxFileName = "/Users/rusanov/WebstormProjects/investing/pages/clients.jsx";
 // Import libraries
 
 
 // Import components
+
 
 
 var ClientsPage = function ClientsPage() {
@@ -93,14 +95,76 @@ var ClientsPage = function ClientsPage() {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 9
       }
     },
-    "ClientsPage"
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__src_components_Layout_ContentHeader__["a" /* default */], { title: "\u041A\u043B\u0438\u0435\u043D\u0442\u044B", __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
+      }
+    })
   );
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ClientsPage);
+
+/***/ }),
+
+/***/ "./src/components/Layout/ContentHeader/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("prop-types");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles__ = __webpack_require__("./src/styles/index.js");
+var _jsxFileName = "/Users/rusanov/WebstormProjects/investing/src/components/Layout/ContentHeader/index.js";
+// Import libraries
+
+
+
+// Import styles
+
+
+var titleStyle = {
+  display: "inline-block",
+  borderBottom: "1px solid " + __WEBPACK_IMPORTED_MODULE_2__styles__["a" /* brightBlueColor */],
+  paddingRight: "1rem",
+  fontSize: "1.5rem",
+  marginBottom: "1rem"
+};
+
+var ContentHeader = function ContentHeader(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    "header",
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      }
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { style: titleStyle, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        }
+      },
+      props.title
+    )
+  );
+};
+
+ContentHeader.propTypes = {
+  title: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired
+};
+
+ContentHeader.defaultProps = {
+  title: "Заголовок"
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (ContentHeader);
 
 /***/ }),
 
@@ -122,16 +186,30 @@ var _jsxFileName = "/Users/rusanov/WebstormProjects/investing/src/components/Lay
 // Import components
 
 
+var mainContentStyle = {
+  padding: "1rem",
+  background: "#fff",
+  height: "100vh"
+};
+
 var MainContent = function MainContent(props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     __WEBPACK_IMPORTED_MODULE_2_antd__["Layout"].Content,
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 15
       }
     },
-    props.children
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "main",
+      { style: mainContentStyle, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16
+        }
+      },
+      props.children
+    )
   );
 };
 
@@ -247,7 +325,7 @@ var logoStyle = {
 
 var iconWrapperStyle = {
   fontSize: "1.4rem",
-  color: __WEBPACK_IMPORTED_MODULE_1__styles__["a" /* activeInteractiveColor */],
+  color: __WEBPACK_IMPORTED_MODULE_1__styles__["a" /* brightBlueColor */],
   marginRight: ".5rem",
   padding: "0 .5rem 0",
   display: "flex",
@@ -354,7 +432,7 @@ var MenuContainer = function (_Component) {
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_2_next_link___default.a,
-            { href: "projects", __source: {
+            { href: "investments", __source: {
                 fileName: _jsxFileName,
                 lineNumber: 12
               }
@@ -372,7 +450,7 @@ var MenuContainer = function (_Component) {
                   lineNumber: 14
                 }
               }),
-              "\u041F\u0440\u043E\u0435\u043A\u0442\u044B"
+              "\u0418\u043D\u0432\u0435\u0441\u0442\u0438\u0446\u0438\u0438"
             )
           )
         ),
@@ -518,9 +596,9 @@ var MainSidebar = function MainSidebar() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return activeInteractiveColor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return brightBlueColor; });
 // Style's constants
-var activeInteractiveColor = "#2592FC";
+var brightBlueColor = "#2592FC";
 
 /***/ }),
 

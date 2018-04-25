@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Import styles
-import styles from 'antd/dist/antd.css';
+import styles from "antd/dist/antd.css";
 
 // Import components
 import { Layout } from "antd";
@@ -18,7 +18,7 @@ const layoutStyle = {
 const MainLayout = props => (
   <main style={layoutStyle}>
     <Layout hasSider style={layoutStyle}>
-      <style dangerouslySetInnerHTML={{ __html: styles}} />
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
       <MainSidebar />
       <MainContent>
         {props.children}
@@ -33,6 +33,6 @@ MainLayout.propTypes = {
     PropTypes.element,
     PropTypes.array
   ])
-}
+};
 
 export default MainLayout;

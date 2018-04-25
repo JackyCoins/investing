@@ -9,10 +9,10 @@ class MenuContainer extends Component {
   render = () => (
     <Menu theme="dark">
       <Menu.Item key="projects">
-        <Link href="projects">
+        <Link href="investments">
           <div>
             <Icon type="appstore-o" />
-            Проекты
+            Инвестиции
           </div>
         </Link>
       </Menu.Item>

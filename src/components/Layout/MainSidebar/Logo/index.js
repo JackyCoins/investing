@@ -2,7 +2,7 @@
 import React from "react";
 
 // Import styles
-import { activeInteractiveColor } from "../../../../styles";
+import { brightBlueColor } from "../../../../styles";
 
 // Import components
 import { Icon } from "antd";
@@ -13,7 +13,7 @@ const logoStyle = {
 
 const iconWrapperStyle = {
   fontSize: "1.4rem",
-  color: activeInteractiveColor,
+  color: brightBlueColor,
   marginRight: ".5rem",
   padding: "0 .5rem 0",
   display: "flex",
