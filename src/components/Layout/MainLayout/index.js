@@ -1,6 +1,10 @@
 // Import libraries
 import React from "react";
 import PropTypes from "prop-types";
+import { Provider } from "react-redux";
+
+// Import store
+import store from "../../../redux/store";
 
 // Import styles
 import styles from "antd/dist/antd.css";
@@ -16,15 +20,17 @@ const layoutStyle = {
 };
 
 const MainLayout = props => (
-  <main style={layoutStyle}>
-    <Layout hasSider style={layoutStyle}>
-      <style dangerouslySetInnerHTML={{ __html: styles }} />
-      <MainSidebar />
-      <MainContent>
-        {props.children}
-      </MainContent>
-    </Layout>
-  </main>
+  <Provider store={store}>
+    <main style={layoutStyle}>
+      <Layout hasSider style={layoutStyle}>
+        <style dangerouslySetInnerHTML={{ __html: styles }} />
+        <MainSidebar />
+        <MainContent>
+          {props.children}
+        </MainContent>
+      </Layout>
+    </main>
+  </Provider>
 );
 
 MainLayout.propTypes = {

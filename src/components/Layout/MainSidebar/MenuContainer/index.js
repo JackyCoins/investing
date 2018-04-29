@@ -1,38 +1,59 @@
 // Import libraries
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 // Import components
 import { Menu, Icon } from "antd";
 import Link from "next/link";
 
-class MenuContainer extends Component {
-  render = () => (
-    <Menu theme="dark">
-      <Menu.Item key="projects">
-        <Link href="investments">
-          <div>
-            <Icon type="appstore-o" />
-            Инвестиции
-          </div>
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="applications">
-        <Link href="applications">
-          <div>
-            <Icon type="tag-o" />Заявки
-          </div>
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="clients">
-        <Link href="clients">
-          <div>
-            <Icon type="team" />Клиенты
-          </div>
-        </Link>
-      </Menu.Item>
+// Import selectors or actions
+import {
+  getMenuItems,
+  getNameOfActiveMenuItem,
+  toggleMenuItem
+} from "../../../../redux/menu";
+
+const MenuContainer = props => {
+  const menuItems = props.menuItems.map(menuItem => (
+    <Menu.Item key={menuItem.name}>
+      <Link href={menuItem.path}>
+        <div>
+          <Icon type={menuItem.icon} />
+          {menuItem.title}
+        </div>
+      </Link>
+    </Menu.Item>
+  ));
+
+  const clickHandler = item => {
+    props.toggleMenuItem(item.key);
+  };
+
+  return (
+    <Menu
+      theme="dark"
+      selectedKeys={[props.nameOfActiveMenuItem]}
+      onClick={clickHandler}
+    >
+      {menuItems}
       <Menu.Divider />
     </Menu>
   );
-}
+};
 
-export default MenuContainer;
+MenuContainer.propTypes = {
+  menuItems: PropTypes.array.isRequired,
+  nameOfActiveMenuItem: PropTypes.string.isRequired,
+  toggleMenuItem: PropTypes.func.isRequired
+};
+
+export default connect(
+  state => ({
+    menuItems: getMenuItems(state),
+    nameOfActiveMenuItem: getNameOfActiveMenuItem(state)
+  }),
+  {
+    toggleMenuItem
+  }
+)(MenuContainer);

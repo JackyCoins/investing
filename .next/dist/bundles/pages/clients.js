@@ -229,13 +229,20 @@ MainContent.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("prop-types");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd__ = __webpack_require__("antd");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_antd___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_antd__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MainSidebar_index__ = __webpack_require__("./src/components/Layout/MainSidebar/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__MainContent_index__ = __webpack_require__("./src/components/Layout/MainContent/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__redux_store__ = __webpack_require__("./src/redux/store/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_antd__ = __webpack_require__("antd");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_antd___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_antd__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__MainSidebar_index__ = __webpack_require__("./src/components/Layout/MainSidebar/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__MainContent_index__ = __webpack_require__("./src/components/Layout/MainContent/index.js");
 var _jsxFileName = "/Users/rusanov/WebstormProjects/investing/src/components/Layout/MainLayout/index.js";
 // Import libraries
 
+
+
+
+// Import store
 
 
 // Import styles
@@ -254,39 +261,47 @@ var layoutStyle = {
 
 var MainLayout = function MainLayout(props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    "main",
-    { style: layoutStyle, __source: {
+    __WEBPACK_IMPORTED_MODULE_2_react_redux__["Provider"],
+    { store: __WEBPACK_IMPORTED_MODULE_3__redux_store__["a" /* default */], __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 23
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_2_antd__["Layout"],
-      { hasSider: true, style: layoutStyle, __source: {
+      "main",
+      { style: layoutStyle, __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 24
         }
       },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", { dangerouslySetInnerHTML: { __html: styles }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 21
-        }
-      }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__MainSidebar_index__["a" /* default */], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 22
-        }
-      }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_4__MainContent_index__["a" /* default */],
-        {
-          __source: {
+        __WEBPACK_IMPORTED_MODULE_4_antd__["Layout"],
+        { hasSider: true, style: layoutStyle, __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 25
           }
         },
-        props.children
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", { dangerouslySetInnerHTML: { __html: styles }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__MainSidebar_index__["a" /* default */], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          __WEBPACK_IMPORTED_MODULE_6__MainContent_index__["a" /* default */],
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 28
+            }
+          },
+          props.children
+        )
       )
     )
   );
@@ -382,154 +397,102 @@ var Logo = function Logo() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd__ = __webpack_require__("antd");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_antd___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_antd__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link__ = __webpack_require__("next/link");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_link__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("prop-types");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__("react-redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd__ = __webpack_require__("antd");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_antd___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_antd__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_next_link__ = __webpack_require__("next/link");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_next_link__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__redux_menu__ = __webpack_require__("./src/redux/menu/index.js");
 var _jsxFileName = "/Users/rusanov/WebstormProjects/investing/src/components/Layout/MainSidebar/MenuContainer/index.js";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 // Import libraries
+
+
 
 
 // Import components
 
 
 
-var MenuContainer = function (_Component) {
-  _inherits(MenuContainer, _Component);
+// Import selectors or actions
 
-  function MenuContainer() {
-    var _ref;
 
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, MenuContainer);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MenuContainer.__proto__ || Object.getPrototypeOf(MenuContainer)).call.apply(_ref, [this].concat(args))), _this), _this.render = function () {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_1_antd__["Menu"],
-        { theme: "dark", __source: {
+var MenuContainer = function MenuContainer(props) {
+  var menuItems = props.menuItems.map(function (menuItem) {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_3_antd__["Menu"].Item,
+      { key: menuItem.name, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_4_next_link___default.a,
+        { href: menuItem.path, __source: {
             fileName: _jsxFileName,
-            lineNumber: 10
+            lineNumber: 20
           }
         },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_antd__["Menu"].Item,
-          { key: "projects", __source: {
+          "div",
+          {
+            __source: {
               fileName: _jsxFileName,
-              lineNumber: 11
+              lineNumber: 21
             }
           },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_next_link___default.a,
-            { href: "investments", __source: {
-                fileName: _jsxFileName,
-                lineNumber: 12
-              }
-            },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 13
-                }
-              },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd__["Icon"], { type: "appstore-o", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 14
-                }
-              }),
-              "\u0418\u043D\u0432\u0435\u0441\u0442\u0438\u0446\u0438\u0438"
-            )
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_antd__["Menu"].Item,
-          { key: "applications", __source: {
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd__["Icon"], { type: menuItem.icon, __source: {
               fileName: _jsxFileName,
-              lineNumber: 19
+              lineNumber: 22
             }
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_next_link___default.a,
-            { href: "applications", __source: {
-                fileName: _jsxFileName,
-                lineNumber: 20
-              }
-            },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 21
-                }
-              },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd__["Icon"], { type: "tag-o", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 22
-                }
-              }),
-              "\u0417\u0430\u044F\u0432\u043A\u0438"
-            )
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_antd__["Menu"].Item,
-          { key: "clients", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 26
-            }
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_next_link___default.a,
-            { href: "clients", __source: {
-                fileName: _jsxFileName,
-                lineNumber: 27
-              }
-            },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 28
-                }
-              },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd__["Icon"], { type: "team", __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 29
-                }
-              }),
-              "\u041A\u043B\u0438\u0435\u043D\u0442\u044B"
-            )
-          )
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_antd__["Menu"].Divider, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 33
-          }
-        })
-      );
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
+          }),
+          menuItem.title
+        )
+      )
+    );
+  });
 
-  return MenuContainer;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+  var clickHandler = function clickHandler(item) {
+    props.toggleMenuItem(item.key);
+  };
 
-/* harmony default export */ __webpack_exports__["a"] = (MenuContainer);
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_3_antd__["Menu"],
+    {
+      theme: "dark",
+      selectedKeys: [props.nameOfActiveMenuItem],
+      onClick: clickHandler,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34
+      }
+    },
+    menuItems,
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_antd__["Menu"].Divider, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      }
+    })
+  );
+};
+
+MenuContainer.propTypes = {
+  menuItems: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array.isRequired,
+  nameOfActiveMenuItem: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequired,
+  toggleMenuItem: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(function (state) {
+  return {
+    menuItems: Object(__WEBPACK_IMPORTED_MODULE_5__redux_menu__["a" /* getMenuItems */])(state),
+    nameOfActiveMenuItem: Object(__WEBPACK_IMPORTED_MODULE_5__redux_menu__["b" /* getNameOfActiveMenuItem */])(state)
+  };
+}, {
+  toggleMenuItem: __WEBPACK_IMPORTED_MODULE_5__redux_menu__["d" /* toggleMenuItem */]
+})(MenuContainer));
 
 /***/ }),
 
@@ -592,6 +555,161 @@ var MainSidebar = function MainSidebar() {
 
 /***/ }),
 
+/***/ "./src/redux/menu/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getMenuItems; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getNameOfActiveMenuItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return toggleMenuItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return menuReducer; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux_actions__ = __webpack_require__("redux-actions");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux_actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux_actions__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_reselect__ = __webpack_require__("reselect");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_reselect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_reselect__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var defaultState = [{
+  id: 0,
+  name: "investments",
+  title: "Инвестиции",
+  icon: "appstore-o",
+  path: "investments",
+  active: true
+}, {
+  id: 1,
+  name: "applications",
+  title: "Заявки",
+  icon: "tag-o",
+  path: "applications",
+  active: false
+}, {
+  id: 2,
+  name: "clients",
+  title: "Клиенты",
+  icon: "team",
+  path: "clients",
+  active: false
+}];
+
+// Exports selectors
+var getMenuItems = function getMenuItems(state) {
+  return state.menuReducer;
+};
+var getNameOfActiveMenuItem = Object(__WEBPACK_IMPORTED_MODULE_1_reselect__["createSelector"])([getMenuItems], function (menuItems) {
+  return menuItems.find(function (menuItem) {
+    return menuItem.active;
+  }).name;
+});
+
+// Exports actions
+var toggleMenuItem = Object(__WEBPACK_IMPORTED_MODULE_0_redux_actions__["createAction"])("TOGGLE_MENU_ITEM", function (name) {
+  return name;
+});
+
+// Exports reducer
+var menuReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux_actions__["handleActions"])(_defineProperty({}, toggleMenuItem, function (state, action) {
+  return state.map(function (menuItem) {
+    return action.payload === menuItem.name ? _extends({}, menuItem, { active: true }) : _extends({}, menuItem, { active: false });
+  });
+}), defaultState);
+
+/***/ }),
+
+/***/ "./src/redux/sagas/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = rootSaga;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("babel-runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__ = __webpack_require__("redux-saga/effects");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_saga_effects___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__);
+
+
+var _marked = /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(helloSaga),
+    _marked2 = /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(rootSaga);
+
+// Import libraries
+
+
+function helloSaga() {
+  return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function helloSaga$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          console.log("Hello Sagas!");
+
+        case 1:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked, this);
+}
+
+function rootSaga() {
+  return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function rootSaga$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return Object(__WEBPACK_IMPORTED_MODULE_1_redux_saga_effects__["all"])([helloSaga()]);
+
+        case 2:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, _marked2, this);
+}
+
+/***/ }),
+
+/***/ "./src/redux/store/index.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__("redux");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_saga__ = __webpack_require__("redux-saga");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux_saga___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux_saga__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_devtools_extension__ = __webpack_require__("redux-devtools-extension");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_devtools_extension___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_devtools_extension__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_logger__ = __webpack_require__("redux-logger");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_logger___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_redux_logger__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sagas_index__ = __webpack_require__("./src/redux/sagas/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__menu__ = __webpack_require__("./src/redux/menu/index.js");
+// Import libraries
+
+
+
+
+
+// Import sagas
+
+
+// Import reducers
+// import investmentsReducer from "../investments";
+
+
+var reducers = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({ menuReducer: __WEBPACK_IMPORTED_MODULE_5__menu__["c" /* menuReducer */] });
+
+var sagaMiddleware = __WEBPACK_IMPORTED_MODULE_1_redux_saga___default()();
+
+var store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(reducers, Object(__WEBPACK_IMPORTED_MODULE_2_redux_devtools_extension__["composeWithDevTools"])(Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_3_redux_logger___default.a, sagaMiddleware)));
+
+sagaMiddleware.run(__WEBPACK_IMPORTED_MODULE_4__sagas_index__["a" /* default */]);
+
+/* harmony default export */ __webpack_exports__["a"] = (store);
+
+/***/ }),
+
 /***/ "./src/styles/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -617,6 +735,13 @@ module.exports = require("antd");
 
 /***/ }),
 
+/***/ "babel-runtime/regenerator":
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/regenerator");
+
+/***/ }),
+
 /***/ "next/link":
 /***/ (function(module, exports) {
 
@@ -635,6 +760,62 @@ module.exports = require("prop-types");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "redux":
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-actions":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-actions");
+
+/***/ }),
+
+/***/ "redux-devtools-extension":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-devtools-extension");
+
+/***/ }),
+
+/***/ "redux-logger":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-logger");
+
+/***/ }),
+
+/***/ "redux-saga":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-saga");
+
+/***/ }),
+
+/***/ "redux-saga/effects":
+/***/ (function(module, exports) {
+
+module.exports = require("redux-saga/effects");
+
+/***/ }),
+
+/***/ "reselect":
+/***/ (function(module, exports) {
+
+module.exports = require("reselect");
 
 /***/ })
 
