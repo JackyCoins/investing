@@ -15,7 +15,7 @@ const clients = [
 ];
 
 // Export selectors
-export const getClients = state => state.clientsReducer;
+export const getClientsSelector = state => state.clientsReducer;
 
 // Export reducer
 export const clientsReducer = handleActions({

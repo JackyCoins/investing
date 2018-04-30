@@ -1,12 +1,7 @@
 // Import libraries
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import { Table, Avatar } from "antd";
-import { mapProps } from "recompose";
-
-// Import selectors and actions
-import { getStocks } from "../../../../redux/stocks";
 
 // Import components
 import ColorTextBySymbol from "../../../Common/Text/ColorTextBySymbol";
@@ -47,7 +42,8 @@ const columns = [
     title: "Цена",
     dataIndex: "price",
     key: "price",
-    render: price => <PriceText value={price.value} currency={price.currency} />
+    render: price =>
+      price ? <PriceText value={price.value} currency={price.currency} /> : null
   }
 ];
 
@@ -63,6 +59,4 @@ TableWithStocks.propTypes = {
   stocks: PropTypes.array.isRequired
 };
 
-export default connect(state => ({
-  stocks: getStocks(state)
-}))(TableWithStocks);
+export default TableWithStocks;

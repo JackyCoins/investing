@@ -90,7 +90,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bef339bd48a1e4440820"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5c4a28ce63052c8a74aa"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -755,7 +755,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + ({"0":"main.js","1":"bundles/pages/_error.js","5":"bundles/pages/applications.js","6":"bundles/pages/clients.js"}[chunkId]||chunkId) + "-" + {"0":"319fd5236d914c7211f2","1":"9a3a532253314e1f0220","5":"dbc6c0df70bebfdd0b58","6":"a8e7802114529658276a"}[chunkId] + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + ({"0":"main.js","1":"bundles/pages/_error.js","3":"bundles/pages/investments.js","4":"bundles/pages/applications.js","5":"bundles/pages/clients.js"}[chunkId]||chunkId) + "-" + {"0":"319fd5236d914c7211f2","1":"9a3a532253314e1f0220","3":"a470722ccb59a2e43a5c","4":"3216041f6c545622430f","5":"9d810ea409a513a21c94"}[chunkId] + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {

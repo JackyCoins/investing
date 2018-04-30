@@ -1,12 +1,9 @@
 // Import libraries
 import { takeEvery, all } from 'redux-saga/effects'
 
-function* helloSaga() {
-  console.log("Hello Sagas!");
-}
+// Import sagas and actions
+import { getStocksSaga, getStocksAction } from "../stocks";
 
 export default function* rootSaga() {
-  yield all([
-    helloSaga()
-  ]);
+  yield takeEvery(getStocksAction, getStocksSaga);
 }

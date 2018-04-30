@@ -4,16 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "start:dev": "nodemon ./bin/www",
+    "dev": "node ./bin/www",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start:prod": "NODE_ENV=production node ./bin/www"
   },
   "author": "Jacky Coins",
   "license": "ISC",
   "dependencies": {
     "antd": "^3.4.2",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "morgan": "^1.9.0",
     "next": "^5.1.0",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -23,7 +29,8 @@
     "redux-actions": "^2.3.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "sequelize": "^4.37.6"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

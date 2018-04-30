@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Table } from "antd";
 
 // Import selectors and actions
-import { getClients } from "../../../../redux/clients";
+import { getClientsSelector } from "../../../../redux/clients";
 
 const columns = [
   {
@@ -41,5 +41,5 @@ TableWithClients.propTypes = {
 };
 
 export default connect(state => ({
-  clients: getClients(state)
+  clients: getClientsSelector(state)
 }))(TableWithClients);

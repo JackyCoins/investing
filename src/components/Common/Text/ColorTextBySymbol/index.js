@@ -16,4 +16,8 @@ ColorTextBySymbol.propTypes = {
   number: PropTypes.number.isRequired
 };
 
+ColorTextBySymbol.defaultProps = {
+  number: 0
+};
+
 export default ColorTextBySymbol;
