@@ -8,11 +8,15 @@ import logger from "redux-logger";
 import rootSaga from "../sagas/index";
 
 // Import reducers
-// import investmentsReducer from "../investments";
+import { clientsReducer } from "../clients";
 import { menuReducer } from "../menu";
 import { stocksReducer } from "../stocks";
 
-const reducers = combineReducers({ menuReducer, stocksReducer });
+const reducers = combineReducers({
+  menuReducer,
+  stocksReducer,
+  clientsReducer
+});
 
 const sagaMiddleware = createSagaMiddleware();
 

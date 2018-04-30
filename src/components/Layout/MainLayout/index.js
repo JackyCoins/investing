@@ -2,6 +2,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
+import { LocaleProvider } from "antd";
+import ruRu from 'antd/lib/locale-provider/ru_RU';
 
 // Import store
 import store from "../../../redux/store";
@@ -21,15 +23,17 @@ const layoutStyle = {
 
 const MainLayout = props => (
   <Provider store={store}>
-    <main style={layoutStyle}>
-      <Layout hasSider style={layoutStyle}>
-        <style dangerouslySetInnerHTML={{ __html: styles }} />
-        <MainSidebar />
-        <MainContent>
-          {props.children}
-        </MainContent>
-      </Layout>
-    </main>
+    <LocaleProvider locale={ruRu}>
+      <main style={layoutStyle}>
+        <Layout hasSider style={layoutStyle}>
+          <style dangerouslySetInnerHTML={{ __html: styles }} />
+          <MainSidebar />
+          <MainContent>
+            {props.children}
+          </MainContent>
+        </Layout>
+      </main>
+    </LocaleProvider>
   </Provider>
 );
 

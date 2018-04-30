@@ -51,9 +51,13 @@ const columns = [
   }
 ];
 
-const TableWithStocks = props => {
-  return <Table dataSource={props.stocks} columns={columns} />;
-};
+const TableWithStocks = props => (
+  <Table
+    rowKey={record => record.id}
+    dataSource={props.stocks}
+    columns={columns}
+  />
+);
 
 TableWithStocks.propTypes = {
   stocks: PropTypes.array.isRequired
