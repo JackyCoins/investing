@@ -10,5 +10,6 @@ module.exports = app => {
   app.post("/api/stocks", stocksController.create);
   app.get("/api/stocks", stocksController.list);
   app.get("/api/stocks/:stockId", stocksController.retrieve);
+  app.put("/api/stocks/:stockId", stocksController.update);
   app.delete("/api/stocks/:stockId", stocksController.destroy);
 };
