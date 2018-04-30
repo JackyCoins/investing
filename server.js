@@ -10,6 +10,10 @@ app
   .then(() => {
     const server = express();
 
+    const assetsHandler = express.static(".");
+
+    server.use(assetsHandler);
+
     server.get('/p/:id', (req, res) => {
       const actualPage = '/post'
       const queryParams = { id: req.params.id }

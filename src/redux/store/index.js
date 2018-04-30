@@ -10,8 +10,9 @@ import rootSaga from "../sagas/index";
 // Import reducers
 // import investmentsReducer from "../investments";
 import { menuReducer } from "../menu";
+import { stocksReducer } from "../stocks";
 
-const reducers = combineReducers({ menuReducer });
+const reducers = combineReducers({ menuReducer, stocksReducer });
 
 const sagaMiddleware = createSagaMiddleware();
 
