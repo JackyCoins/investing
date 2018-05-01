@@ -6,12 +6,16 @@ import { Layout } from "antd";
 import Logo from "./Logo/index";
 import MenuContainer from "./MenuContainer/index";
 
+const siderStyle = {
+  background: "#fff"
+}
+
 const logoWrapperStyle = {
   padding: "1rem .5rem"
 };
 
 const MainSidebar = () => (
-  <Layout.Sider>
+  <Layout.Sider style={siderStyle}>
     <div style={logoWrapperStyle}>
       <Logo />
     </div>

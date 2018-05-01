@@ -18,13 +18,14 @@ const iconWrapperStyle = {
   padding: "0 .5rem 0",
   display: "flex",
   alignItems: "center",
-  borderRight: "1px solid #fff"
+  borderRight: "1px solid #999"
 };
 
 const titleStyle = {
-  fontSize: ".9rem",
-  color: "#fff",
-  lineHeight: "1.2rem"
+  fontSize: "1.2rem",
+  color: "#999",
+  fontWeight: "100",
+  fontFamily: "monospace"
 };
 
 const Logo = () => (
@@ -32,7 +33,7 @@ const Logo = () => (
     <div style={iconWrapperStyle}>
       <Icon type="dashboard" />
     </div>
-    <div style={titleStyle}>Административная панель</div>
+    <div style={titleStyle}>INVEST</div>
   </section>
 );
 

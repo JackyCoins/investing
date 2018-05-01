@@ -7,8 +7,7 @@ import { Layout } from "antd";
 
 const mainContentStyle = {
   padding: "1rem",
-  background: "#fff",
-  height: "100vh"
+  paddingBottom: "5rem"
 };
 
 const MainContent = props => (

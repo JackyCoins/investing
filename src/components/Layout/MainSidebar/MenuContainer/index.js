@@ -14,6 +14,10 @@ import {
   toggleMenuItem
 } from "../../../../redux/menu";
 
+const menuStyle = {
+  borderRight: 0
+}
+
 const MenuContainer = props => {
   const menuItems = props.menuItems.map(menuItem => (
     <Menu.Item key={menuItem.name}>
@@ -32,9 +36,9 @@ const MenuContainer = props => {
 
   return (
     <Menu
-      theme="dark"
       selectedKeys={[props.nameOfActiveMenuItem]}
       onClick={clickHandler}
+      style={menuStyle}
     >
       {menuItems}
       <Menu.Divider />

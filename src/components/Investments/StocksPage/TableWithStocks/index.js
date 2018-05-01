@@ -6,6 +6,7 @@ import { Table, Avatar } from "antd";
 // Import components
 import ColorTextBySymbol from "../../../Common/Text/ColorTextBySymbol";
 import PriceText from "../../../Common/Text/PriceText";
+import ElementWrapper from "../../../Common/ElementWrapper";
 
 const avatarColumnStyle = {
   marginRight: ".5em",
@@ -48,11 +49,13 @@ const columns = [
 ];
 
 const TableWithStocks = props => (
-  <Table
-    rowKey={record => record.id}
-    dataSource={props.stocks}
-    columns={columns}
-  />
+  <ElementWrapper>
+    <Table
+      rowKey={record => record.id}
+      dataSource={props.stocks}
+      columns={columns}
+    />
+  </ElementWrapper>
 );
 
 TableWithStocks.propTypes = {

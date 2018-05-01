@@ -5,3 +5,5 @@ import axios from "axios";
 import { backendPaths } from "../config";
 
 export const getStocksFromServer = () => axios.get(backendPaths.stocks.base);
+
+export const createStock = values => axios.post(backendPaths.stocks.base, values);

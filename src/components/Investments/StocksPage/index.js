@@ -6,7 +6,7 @@ import { Button } from "antd";
 import { compose, lifecycle, withStateHandlers } from "recompose";
 
 // Import selectors and actions
-import { getStocksSelector, getStocksAction } from "../../../redux/stocks";
+import { getStocksSelector, getStocksAction, createStockAction } from "../../../redux/stocks";
 
 // Import components
 import HeaderWithActions from "../../Layout/MainContent/HeaderWithActions";
@@ -24,7 +24,7 @@ const StocksPage = props =>
           </Button>
         ]}
       />
-      <FormOfCreateStock />
+      <FormOfCreateStock createStockAction={props.createStockAction} />
     </div>
   ) : (
     <div>
@@ -45,7 +45,8 @@ StocksPage.propTypes = {
   getStocksAction: PropTypes.func.isRequired,
   activeCreateMode: PropTypes.bool.isRequired,
   showCreateMode: PropTypes.func.isRequired,
-  hideCreateMode: PropTypes.func.isRequired
+  hideCreateMode: PropTypes.func.isRequired,
+  createStockAction: PropTypes.func.isRequired
 };
 
 export default compose(
@@ -53,7 +54,7 @@ export default compose(
     state => ({
       stocks: getStocksSelector(state)
     }),
-    { getStocksAction }
+    { getStocksAction, createStockAction }
   ),
   withStateHandlers(
     {
