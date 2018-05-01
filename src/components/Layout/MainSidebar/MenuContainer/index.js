@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { compose, lifecycle } from "recompose";
 
 // Import components
 import { Menu, Icon } from "antd";
@@ -52,12 +53,23 @@ MenuContainer.propTypes = {
   toggleMenuItem: PropTypes.func.isRequired
 };
 
-export default connect(
-  state => ({
-    menuItems: getMenuItems(state),
-    nameOfActiveMenuItem: getNameOfActiveMenuItem(state)
-  }),
-  {
-    toggleMenuItem
-  }
+export default compose(
+  connect(
+    state => ({
+      menuItems: getMenuItems(state),
+      nameOfActiveMenuItem: getNameOfActiveMenuItem(state)
+    }),
+    {
+      toggleMenuItem
+    }
+  ),
+  lifecycle({
+    componentDidMount() {
+      const currentSection = window.location.pathname.split("/")[1];
+
+      if (currentSection) {
+        this.props.toggleMenuItem(currentSection);
+      }
+    }
+  })
 )(MenuContainer);

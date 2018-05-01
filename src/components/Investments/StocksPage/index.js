@@ -6,7 +6,11 @@ import { Button } from "antd";
 import { compose, lifecycle, withStateHandlers } from "recompose";
 
 // Import selectors and actions
-import { getStocksSelector, getStocksAction, createStockAction } from "../../../redux/stocks";
+import {
+  getStocksSelector,
+  getStocksAction,
+  createStockAction
+} from "../../../redux/stocks";
 
 // Import components
 import HeaderWithActions from "../../Layout/MainContent/HeaderWithActions";

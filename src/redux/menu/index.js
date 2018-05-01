@@ -9,7 +9,7 @@ const defaultState = [
     title: "Инвестиции",
     icon: "appstore-o",
     path: "investments",
-    active: true
+    active: false
   },
   {
     id: 1,
@@ -33,7 +33,11 @@ const defaultState = [
 export const getMenuItems = state => state.menuReducer;
 export const getNameOfActiveMenuItem = createSelector(
   [getMenuItems],
-  menuItems => menuItems.find(menuItem => menuItem.active).name
+  menuItems => {
+    const foundedItem = menuItems.find(menuItem => menuItem.active);
+
+    return foundedItem ? foundedItem.name : "";
+  }
 );
 
 // Exports actions
