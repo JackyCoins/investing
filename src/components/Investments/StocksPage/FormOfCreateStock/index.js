@@ -12,7 +12,6 @@ import ElementWrapper from "../../../Common/ElementWrapper";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-const InputGroup = Input.Group;
 
 const selectImageResolution = (
   <Select defaultValue=".png">

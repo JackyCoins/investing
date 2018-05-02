@@ -16,6 +16,13 @@ import {
   createClientAction
 } from "../clients";
 
+import {
+  getApplicationsSaga,
+  getApplicationsAction,
+  createApplicationSaga,
+  createApplicationAction
+} from "../applications";
+
 export default function* rootSaga() {
   // stocks
   yield takeEvery(getStocksAction, getStocksSaga);
@@ -24,4 +31,8 @@ export default function* rootSaga() {
   // clients
   yield takeEvery(getClientsAction, getClientsSaga);
   yield takeLatest(createClientAction, createClientSaga);
+
+  // applications
+  yield takeEvery(getApplicationsAction, getApplicationsSaga);
+  yield takeLatest(createApplicationAction, createApplicationSaga);
 }

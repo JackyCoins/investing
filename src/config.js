@@ -10,6 +10,9 @@ module.exports = {
     },
     clients: {
       base: `${api}/clients`
+    },
+    applications: {
+      base: `${api}/applications`
     }
   }
 };
