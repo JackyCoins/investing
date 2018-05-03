@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Form, Input, Select, Button } from "antd";
 import { withFormik } from "formik";
+import { compose, withHandlers } from "recompose";
 
 // Import styles
 import { widthFormItemElementSize } from "../../../../styles";
@@ -48,7 +49,9 @@ const FormOfCreateStock = props => (
         />
       </FormItem>
       <FormItem required label="Валюта" style={formItemStyle}>
-        <Select name="currency" value={props.values.currency} onChange={props.handleChange}>
+        <Select name="currency" value={props.values.currency} onChange={value => {
+          props.onChange("currency", value);
+        }}>
           <Option value="RUB">Рублей</Option>
           <Option value="USD">Долларов</Option>
         </Select>
@@ -66,31 +69,39 @@ FormOfCreateStock.propTypes = {
   values: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   createStockAction: PropTypes.func.isRequired
 };
 
-export default withFormik({
-  mapPropsToValues: props => ({
-    title: "",
-    logo: "",
-    lucrativenessPerSixMonths: 0,
-    earnings: 0,
-    price: 0,
-    currency: "RUB"
-  }),
-  validate: values => {},
-  handleSubmit: (values, { props }) => {
-    const data = {
-      title: values.title || "",
-      logo: values.logo || "",
-      lucrativenessPerSixMonths: +values.lucrativenessPerSixMonths || 0,
-      earnings: +values.earnings || 0,
-      price: {
-        value: +values.price || 0,
-        currency: values.currency || "RUB"
-      }
-    };
+export default compose(
+  withFormik({
+    mapPropsToValues: props => ({
+      title: "",
+      logo: "",
+      lucrativenessPerSixMonths: 0,
+      earnings: 0,
+      price: 0,
+      currency: "RUB"
+    }),
+    validate: values => {},
+    handleSubmit: (values, { props }) => {
+      const data = {
+        title: values.title || "",
+        logo: values.logo || "",
+        lucrativenessPerSixMonths: +values.lucrativenessPerSixMonths || 0,
+        earnings: +values.earnings || 0,
+        price: {
+          value: +values.price || 0,
+          currency: values.currency || "RUB"
+        }
+      };
 
-    props.createStockAction(data)
-  }
-})(FormOfCreateStock);
+      props.createStockAction(data)
+    }
+  }),
+  withHandlers({
+    onChange: props => (name, value) => {
+      props.setValues({ ...props.values, [name]: value });
+    }
+  })
+)(FormOfCreateStock);

@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import { Table, Avatar } from "antd";
 
 // Import components
-import ColorTextBySymbol from "../../../Common/Text/ColorTextBySymbol";
-import PriceText from "../../../Common/Text/PriceText";
 import ElementWrapper from "../../../Common/ElementWrapper";
 
 const avatarColumnStyle = {
@@ -15,20 +13,26 @@ const avatarColumnStyle = {
 
 const columns = [
   {
-    title: "ID клиента",
-    dataIndex: "clientId",
-    key: "clientId",
-    render: text => (
-      <div>
-        {text}
-      </div>
+    title: "ID заявки",
+    dataIndex: "id",
+    key: "id",
+    render: id => (
+      <div>{id}</div>
     )
   },
   {
-    title: "IDs акций",
-    dataIndex: "stockIds",
-    key: "stockIds",
-    render: text => <div>{text}</div>
+    title: "Клиент",
+    dataIndex: "client",
+    key: "client",
+    render: client =>
+      client ? <div>{`${client.firstname} ${client.lastname}`}</div> : null
+  },
+  {
+    title: "Акции",
+    dataIndex: "stocks",
+    key: "stocks",
+    render: stocks =>
+      stocks.map(stock => (stock ? <div>{stock.title}</div> : null))
   }
 ];
 

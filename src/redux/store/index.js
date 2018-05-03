@@ -11,11 +11,13 @@ import rootSaga from "../sagas/index";
 import { clientsReducer } from "../clients";
 import { menuReducer } from "../menu";
 import { stocksReducer } from "../stocks";
+import { applicationsReducer } from "../applications";
 
 const reducers = combineReducers({
   menuReducer,
   stocksReducer,
-  clientsReducer
+  clientsReducer,
+  applicationsReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();

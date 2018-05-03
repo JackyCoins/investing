@@ -29,6 +29,7 @@ export const createClientSuccessAction = createAction("CREATE_CLIENT_SUCCESS", n
 
 // Export selectors
 export const getClientsSelector = state => state.clientsReducer;
+export const getClientByIdSelector = (state, id) => state.clientsReducer.find(client => client.id === id);
 
 // Export reducer
 export const clientsReducer = handleActions({

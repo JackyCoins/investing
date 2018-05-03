@@ -7,7 +7,7 @@ import { compose, lifecycle, withStateHandlers } from "recompose";
 
 // Import selectors and actions
 import {
-  getApplicationsSelector,
+  getApplicationsWithFullDataSelector,
   getApplicationsAction,
   createApplicationAction
 } from "../../../redux/applications";
@@ -66,7 +66,7 @@ ListOfApplicationsPage.propTypes = {
 export default compose(
   connect(
     state => ({
-      applications: getApplicationsSelector(state),
+      applications: getApplicationsWithFullDataSelector(state),
       clients: getClientsSelector(state),
       stocks: getStocksSelector(state)
     }),

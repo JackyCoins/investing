@@ -29,6 +29,7 @@ export const createStockSuccessAction = createAction("CREATE_STOCK_SUCCESS", new
 
 // Export selectors
 export const getStocksSelector = state => state.stocksReducer;
+export const getStockById = (state, id) => state.stocksReducer.find(stock => stock.id === id);
 
 // Export reducer
 export const stocksReducer = handleActions({
