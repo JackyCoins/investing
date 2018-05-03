@@ -25,7 +25,9 @@ const FormOfCreateApplication = props => (
         <Select
           name="clientId"
           value={props.values.clientId}
-          onChange={props.changeHandler}
+          onChange={value => {
+            props.onChange("clientId", value);
+          }}
         >
           {props.clients.map(client => (
             <Option key={client.id} value={client.id}>
@@ -40,14 +42,14 @@ const FormOfCreateApplication = props => (
           name="stockIds"
           value={props.values.stockIds}
           onChange={value => {
-            props.changeHandler("stockIds", value);
+            props.onChange("stockIds", value);
           }}
         >
-          {props.stocks.map(stock => stock.title ? (
+          {props.stocks.filter(stock => stock.title).map(stock => (
             <Option key={stock.id} value={stock.id}>
               {stock.title}
             </Option>
-          ) : null)}
+          ))}
         </Select>
       </FormItem>
       <FormItem style={formItemStyle}>
@@ -64,7 +66,7 @@ FormOfCreateApplication.propTypes = {
   stocks: PropTypes.array.isRequired,
   values: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  changeHandler: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   createApplicationAction: PropTypes.func.isRequired
 };
 
@@ -84,7 +86,7 @@ export default compose(
     }
   }),
   withHandlers({
-    changeHandler: props => (name, value) => {
+    onChange: props => (name, value) => {
       props.setValues({ ...props.values, [name]: value });
     }
   })

@@ -11,8 +11,8 @@ module.exports = {
       clientId: {
         type: Sequelize.INTEGER
       },
-      stockId: {
-        type: Sequelize.INTEGER
+      stockIds: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
       },
       createdAt: {
         allowNull: false,
