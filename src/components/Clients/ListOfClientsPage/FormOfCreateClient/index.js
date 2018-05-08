@@ -1,8 +1,9 @@
 // Import libraries
 import React from "react";
 import PropTypes from "prop-types";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, DatePicker, Select } from "antd";
 import { withFormik } from "formik";
+import { compose, withHandlers } from "recompose";
 
 // Import styles
 import { widthFormItemElementSize } from "../../../../styles";
@@ -11,19 +12,63 @@ import { widthFormItemElementSize } from "../../../../styles";
 import ElementWrapper from "../../../Common/ElementWrapper";
 
 const FormItem = Form.Item;
+const Option = Select.Option;
 
 const formItemStyle = {
   width: `${widthFormItemElementSize}px`
 };
 
-const FormOfCreateStock = props => (
+const FormOfCreateClient = props => (
   <ElementWrapper>
     <Form onSubmit={props.handleSubmit}>
       <FormItem required style={formItemStyle} label="Имя">
-        <Input name="firstname" value={props.values.firstname} onChange={props.handleChange} />
+        <Input
+          name="firstname"
+          value={props.values.firstname}
+          onChange={event => {
+            props.onChange("firstname", event.target.value)
+          }}
+        />
       </FormItem>
-      <FormItem style={formItemStyle} label="Фамилия">
-        <Input name="lastname" value={props.values.lastname} onChange={props.handleChange} />
+      <FormItem required style={formItemStyle} label="Фамилия">
+        <Input
+          name="lastname"
+          value={props.values.lastname}
+          onChange={event => {
+            props.onChange("lastname", event.target.value)
+          }}
+        />
+      </FormItem>
+      <FormItem style={formItemStyle} label="Отчество">
+        <Input
+          name="middlename"
+          value={props.values.middlename}
+          onChange={event => {
+            props.onChange("middlename", event.target.value)
+          }}
+        />
+      </FormItem>
+      <FormItem required style={formItemStyle} label="День рождения">
+        <DatePicker
+          name="birthday"
+          value={props.values.birthday}
+          onChange={props.onChange.bind(null, "birthday")}
+        />
+      </FormItem>
+      <FormItem required label="Город" style={formItemStyle}>
+        <Select
+          name="city"
+          value={props.values.city}
+          onChange={value => {
+            props.onChange("city", value);
+          }}
+        >
+          {props.cities.filter(city => city.title).map(city => (
+            <Option key={city.id} value={city.id}>
+              {city.title}
+            </Option>
+          ))}
+        </Select>
       </FormItem>
       <FormItem style={formItemStyle}>
         <Button type="primary" htmlType="submit">
@@ -34,25 +79,43 @@ const FormOfCreateStock = props => (
   </ElementWrapper>
 );
 
-FormOfCreateStock.propTypes = {
+FormOfCreateClient.propTypes = {
   values: PropTypes.object.isRequired,
+  cities: PropTypes.array.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  createClientAction: PropTypes.func.isRequired
+  createClientAction: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
-export default withFormik({
-  mapPropsToValues: props => ({
-    firstname: "",
-    lastname: ""
-  }),
-  validate: values => {},
-  handleSubmit: (values, { props }) => {
-    const data = {
-      firstname: values.firstname || "",
-      lastname: values.lastname || ""
-    };
+FormOfCreateClient.defaultProps = {
+  cities: [],
+  values: {}
+}
 
-    props.createClientAction(data)
-  }
-})(FormOfCreateStock);
+export default compose(
+  withFormik({
+    mapPropsToValues: () => ({
+      firstname: "",
+      lastname: "",
+      middlename: "",
+      birthday: "",
+      city: null
+    }),
+    handleSubmit: (values, { props }) => {
+      const data = {
+        firstname: values.firstname || "",
+        lastname: values.lastname || "",
+        middlename: values.middlename || "",
+        birthday: values.birthday || null,
+        city: values.city !== null ? values.city : null
+      };
+
+      props.createClientAction(data);
+    }
+  }),
+  withHandlers({
+    onChange: props => (name, value) => {
+      props.setValues({ ...props.values, [name]: value });
+    }
+  })
+)(FormOfCreateClient);

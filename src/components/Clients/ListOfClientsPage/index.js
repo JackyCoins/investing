@@ -7,42 +7,50 @@ import { Button } from "antd";
 
 // Import selectors and actions
 import {
-  getClientsSelector,
+  getClientsWithCitiesSelector,
   getClientsAction,
   createClientAction
 } from "../../../redux/clients";
+import { getCitiesSelector } from "../../../redux/cities";
 
 // Import components
 import TableWithClients from "./TableWithClients";
 import HeaderWithActions from "../../Layout/MainContent/HeaderWithActions";
 import FormOfCreateClient from "./FormOfCreateClient";
 
-const ListOfClientsPage = props => props.activeCreateMode ? (<div>
-  <HeaderWithActions
-    title="Создание клиента"
-    actions={[
-      <Button key="add" type="primary" onClick={props.hideCreateMode}>
-        Перейти к списку
-      </Button>
-    ]}
-  />
-  <FormOfCreateClient createClientAction={props.createClientAction} />
-</div>) :(
-  <div>
-    <HeaderWithActions
-      title="Клиенты"
-      actions={[
-        <Button key="add" type="primary" onClick={props.showCreateMode}>
-          Добавить клиента
-        </Button>
-      ]}
-    />
-    <TableWithClients clients={props.clients}/>
-  </div>
-);
+const ListOfClientsPage = props =>
+  props.activeCreateMode ? (
+    <div>
+      <HeaderWithActions
+        title="Создание клиента"
+        actions={[
+          <Button key="add" type="primary" onClick={props.hideCreateMode}>
+            Перейти к списку
+          </Button>
+        ]}
+      />
+      <FormOfCreateClient
+        cities={props.cities}
+        createClientAction={props.createClientAction}
+      />
+    </div>
+  ) : (
+    <div>
+      <HeaderWithActions
+        title="Клиенты"
+        actions={[
+          <Button key="add" type="primary" onClick={props.showCreateMode}>
+            Добавить клиента
+          </Button>
+        ]}
+      />
+      <TableWithClients clients={props.clients} cities={props.cities} />
+    </div>
+  );
 
 ListOfClientsPage.propTypes = {
   clients: PropTypes.array.isRequired,
+  cities: PropTypes.array.isRequired,
   activeCreateMode: PropTypes.bool.isRequired,
   showCreateMode: PropTypes.func.isRequired,
   createClientAction: PropTypes.func.isRequired,
@@ -52,7 +60,8 @@ ListOfClientsPage.propTypes = {
 export default compose(
   connect(
     state => ({
-      clients: getClientsSelector(state)
+      clients: getClientsWithCitiesSelector(state),
+      cities: getCitiesSelector(state)
     }),
     { getClientsAction, createClientAction }
   ),

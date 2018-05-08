@@ -12,12 +12,14 @@ import { clientsReducer } from "../clients";
 import { menuReducer } from "../menu";
 import { stocksReducer } from "../stocks";
 import { applicationsReducer } from "../applications";
+import { citiesReducer } from "../cities";
 
 const reducers = combineReducers({
   menuReducer,
   stocksReducer,
   clientsReducer,
-  applicationsReducer
+  applicationsReducer,
+  citiesReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();

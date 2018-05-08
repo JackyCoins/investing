@@ -4,7 +4,10 @@ module.exports = {
   create(req, res) {
     return Client.create({
       firstname: req.body.firstname,
-      lastname: req.body.lastname
+      lastname: req.body.lastname,
+      middlename: req.body.middlename,
+      birthday: req.body.birthday,
+      city: req.body.city
     })
       .then(client => res.status(201).send(client))
       .catch(error => res.status(400).send(error));
@@ -37,7 +40,10 @@ module.exports = {
         return client
           .update({
             firstname: req.body.firstname || client.firstname,
-            lastname: req.body.lastname || client.lastname
+            lastname: req.body.lastname || client.lastname,
+            middlename: req.body.middlename || client.middlename,
+            birthday: req.body.birthday || client.birthday,
+            city: req.body.city || client.city
           })
           .then(() => res.status(204).send())
           .catch(error => res.status(400).send(error));

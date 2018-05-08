@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Table } from "antd";
+import moment from "moment";
 
 // Import components
 import ElementWrapper from "../../../Common/ElementWrapper";
@@ -11,19 +12,37 @@ const columns = [
     title: "ID",
     dataIndex: "id",
     key: "id",
-    render: text => <div>{text}</div>
+    render: id => <div>{id}</div>
   },
   {
     title: "Фамилия",
     dataIndex: "lastname",
     key: "lastname",
-    render: text => <div>{text}</div>
+    render: lastname => <div>{lastname}</div>
   },
   {
     title: "Имя",
     dataIndex: "firstname",
     key: "firstname",
-    render: text => <div>{text}</div>
+    render: firstname => <div>{firstname}</div>
+  },
+  {
+    title: "Отчество",
+    dataIndex: "middlename",
+    key: "middlename",
+    render: middlename => <div>{middlename}</div>
+  },
+  {
+    title: "Дата рождения",
+    dataIndex: "birthday",
+    key: "birthday",
+    render: date => <div>{moment(date).format("LL")}</div>
+  },
+  {
+    title: "Город",
+    dataIndex: "city",
+    key: "city",
+    render: city => <div>{city.title}</div>
   }
 ];
 
