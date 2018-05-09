@@ -2,6 +2,10 @@
 import { handleActions, createAction } from "redux-actions";
 import { call, put } from "redux-saga/effects";
 import { createSelector } from "reselect";
+import FileSaver from "file-saver";
+
+// Import config
+import { backendPaths } from "../../config";
 
 // Import selectors
 import { getStockById } from "../stocks";
@@ -25,6 +29,15 @@ export function* createApplicationSaga(action) {
   yield put(createApplicationSuccessAction(result));
 }
 
+export function* getAgreementSaga(action) {
+  yield call(api.applications.createAgreement, action.payload);
+
+  const link = document.createElement("a");
+  link.setAttribute("href", `${backendPaths.assets.base}/agreement.docx`);
+  link.setAttribute("download", "download");
+  link.click();
+}
+
 // Export actions
 export const getApplicationsAction = createAction("GET_APPLICATIONS");
 export const getApplicationsSuccessAction = createAction(
@@ -41,6 +54,11 @@ export const createApplicationSuccessAction = createAction(
   newApplication => newApplication
 );
 
+export const getAgreementAction = createAction(
+  "GET_AGREEMENT",
+  applicationId => applicationId
+);
+
 // Export selectors
 export const getApplicationsSelector = state => state.applicationsReducer;
 
@@ -49,7 +67,7 @@ export const getApplicationsWithFullDataSelector = state =>
     id: application.id,
     client: getClientByIdSelector(state, application.clientId),
     stocks: application.stockIds.map(stockId => getStockById(state, stockId))
-  }))
+  }));
 
 // Export reducer
 export const applicationsReducer = handleActions(

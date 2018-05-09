@@ -20,7 +20,9 @@ import {
   getApplicationsSaga,
   getApplicationsAction,
   createApplicationSaga,
-  createApplicationAction
+  createApplicationAction,
+  getAgreementSaga,
+  getAgreementAction
 } from "../applications";
 
 export default function* rootSaga() {
@@ -35,4 +37,5 @@ export default function* rootSaga() {
   // applications
   yield takeEvery(getApplicationsAction, getApplicationsSaga);
   yield takeLatest(createApplicationAction, createApplicationSaga);
+  yield takeEvery(getAgreementAction, getAgreementSaga);
 }

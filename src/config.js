@@ -5,6 +5,9 @@ module.exports = {
 
   },
   backendPaths: {
+    assets: {
+      base: `/assets`
+    },
     stocks: {
       base: `${api}/stocks`
     },
@@ -12,7 +15,10 @@ module.exports = {
       base: `${api}/clients`
     },
     applications: {
-      base: `${api}/applications`
+      base: `${api}/applications`,
+      agreement: {
+        base: `${api}/applications/agreement`
+      }
     }
   }
 };

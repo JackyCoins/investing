@@ -1,7 +1,7 @@
 // Import libraries
 import React from "react";
 import PropTypes from "prop-types";
-import { Table, Avatar } from "antd";
+import { Table, Button } from "antd";
 
 // Import components
 import ElementWrapper from "../../../Common/ElementWrapper";
@@ -11,14 +11,12 @@ const avatarColumnStyle = {
   display: "inline-block"
 };
 
-const columns = [
+const getColumns = props => [
   {
     title: "ID заявки",
     dataIndex: "id",
     key: "id",
-    render: id => (
-      <div>{id}</div>
-    )
+    render: id => <div>{id}</div>
   },
   {
     title: "Клиент",
@@ -33,6 +31,17 @@ const columns = [
     key: "stocks",
     render: stocks =>
       stocks.map(stock => (stock ? <div>{stock.title}</div> : null))
+  },
+  {
+    dataIndex: "createAgreement",
+    key: "createAgreement",
+    render: (text, record) => (
+      <div>
+        <Button onClick={props.getAgreementAction.bind(null, record.id)}>
+          Создать договор
+        </Button>
+      </div>
+    )
   }
 ];
 
@@ -41,13 +50,14 @@ const TableWithApplications = props => (
     <Table
       rowKey={record => record.id}
       dataSource={props.applications}
-      columns={columns}
+      columns={getColumns(props)}
     />
   </ElementWrapper>
 );
 
 TableWithApplications.propTypes = {
-  applications: PropTypes.array.isRequired
+  applications: PropTypes.array.isRequired,
+  getAgreementAction: PropTypes.func.isRequired
 };
 
 export default TableWithApplications;
