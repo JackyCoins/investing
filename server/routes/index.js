@@ -26,4 +26,5 @@ module.exports = app => {
   app.get("/api/applications/:applicationId", applicationsController.retrieve);
   app.put("/api/applications/:applicationId", applicationsController.update);
   app.delete("/api/applications/:applicationId", applicationsController.destroy);
+  app.post("/api/applications/agreement/:applicationId", applicationsController.createAgreement);
 };

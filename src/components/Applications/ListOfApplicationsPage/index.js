@@ -9,7 +9,8 @@ import { compose, lifecycle, withStateHandlers } from "recompose";
 import {
   getApplicationsWithFullDataSelector,
   getApplicationsAction,
-  createApplicationAction
+  createApplicationAction,
+  getAgreementAction
 } from "../../../redux/applications";
 import { getClientsAction, getClientsSelector } from "../../../redux/clients";
 import { getStocksAction, getStocksSelector } from "../../../redux/stocks";
@@ -46,7 +47,10 @@ const ListOfApplicationsPage = props =>
           </Button>
         ]}
       />
-      <TableWithApplications applications={props.applications} />
+      <TableWithApplications
+        applications={props.applications}
+        getAgreementAction={props.getAgreementAction}
+      />
     </div>
   );
 
@@ -57,6 +61,7 @@ ListOfApplicationsPage.propTypes = {
   showCreateMode: PropTypes.func.isRequired,
   hideCreateMode: PropTypes.func.isRequired,
   createApplicationAction: PropTypes.func.isRequired,
+  getAgreementAction: PropTypes.func.isRequired,
   getClientsAction: PropTypes.func.isRequired,
   clients: PropTypes.array.isRequired,
   getStocksAction: PropTypes.func.isRequired,
@@ -74,7 +79,8 @@ export default compose(
       getApplicationsAction,
       createApplicationAction,
       getClientsAction,
-      getStocksAction
+      getStocksAction,
+      getAgreementAction
     }
   ),
   withStateHandlers(
